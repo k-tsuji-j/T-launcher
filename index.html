@@ -13,18 +13,18 @@
     --border: #E3E5EF;
     --border-strong: #CBCEDC;
 
-    --c-display: #2E6FEE;
-    --c-display-bg: #EAF1FE;
-    --c-apps: #1EA672;
-    --c-apps-bg: #E7F7EF;
-    --c-keyboard: #DE7F17;
-    --c-keyboard-bg: #FCEEDD;
-    --c-taskview: #7A5AF8;
-    --c-taskview-bg: #EFEAFE;
-    --c-tray: #D6409F;
-    --c-tray-bg: #FCE8F4;
-    --c-ext: #0891B2;
-    --c-ext-bg: #E0F4F8;
+    --c-display: #1F4FE0;
+    --c-display-bg: #E6ECFC;
+    --c-keyboard: #935C10;
+    --c-keyboard-bg: #F3EDE5;
+    --c-apps: #1F7A4D;
+    --c-apps-bg: #E6F0EB;
+    --c-taskview: #7400AD;
+    --c-taskview-bg: #F0E3F6;
+    --c-tray: #C431AB;
+    --c-tray-bg: #F9E8F6;
+    --c-ext: #444C58;
+    --c-ext-bg: #EAEBED;
     --c-mark: #E5484D;
 
     --shadow: 0 1px 2px rgba(23,27,38,0.04), 0 6px 16px rgba(23,27,38,0.05);
@@ -38,18 +38,18 @@
       --border: #2A2E3C;
       --border-strong: #3A3F52;
 
-      --c-display: #7EA8FF;
-      --c-display-bg: #1D2A46;
-      --c-apps: #4FD39A;
-      --c-apps-bg: #163C2E;
-      --c-keyboard: #F2A24C;
-      --c-keyboard-bg: #3A2A14;
-      --c-taskview: #AC94FF;
-      --c-taskview-bg: #2A2350;
-      --c-tray: #F17BC6;
-      --c-tray-bg: #45203A;
-      --c-ext: #4CC9E0;
-      --c-ext-bg: #103A44;
+      --c-display: #8BB8F9;
+      --c-display-bg: #344057;
+      --c-keyboard: #D9A066;
+      --c-keyboard-bg: #453B36;
+      --c-apps: #4CC38A;
+      --c-apps-bg: #26423E;
+      --c-taskview: #B57BFF;
+      --c-taskview-bg: #3D3258;
+      --c-tray: #F06BD0;
+      --c-tray-bg: #4A2F4E;
+      --c-ext: #C9CED6;
+      --c-ext-bg: #41454F;
       --c-mark: #FF6B70;
 
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.35);
@@ -63,18 +63,18 @@
     --border: #2A2E3C;
     --border-strong: #3A3F52;
 
-    --c-display: #7EA8FF;
-    --c-display-bg: #1D2A46;
-    --c-apps: #4FD39A;
-    --c-apps-bg: #163C2E;
-    --c-keyboard: #F2A24C;
-    --c-keyboard-bg: #3A2A14;
-    --c-taskview: #AC94FF;
-    --c-taskview-bg: #2A2350;
-    --c-tray: #F17BC6;
-    --c-tray-bg: #45203A;
-    --c-ext: #4CC9E0;
-    --c-ext-bg: #103A44;
+    --c-display: #8BB8F9;
+    --c-display-bg: #344057;
+    --c-keyboard: #D9A066;
+    --c-keyboard-bg: #453B36;
+    --c-apps: #4CC38A;
+    --c-apps-bg: #26423E;
+    --c-taskview: #B57BFF;
+    --c-taskview-bg: #3D3258;
+    --c-tray: #F06BD0;
+    --c-tray-bg: #4A2F4E;
+    --c-ext: #C9CED6;
+    --c-ext-bg: #41454F;
     --c-mark: #FF6B70;
 
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.35);
@@ -363,7 +363,7 @@
     padding: 10px 16px;
   }
   .ext-card { cursor: pointer; transition: border-color 0.12s ease, box-shadow 0.12s ease; }
-  .ext-card:hover { border-color: var(--accent); box-shadow: 0 4px 14px rgba(8,145,178,0.18); }
+  .ext-card:hover { border-color: var(--accent); box-shadow: 0 4px 14px rgba(68,76,88,0.2); }
   .ext-card:hover .ext-btn { transform: translateY(-2px); }
   .ext-browser { cursor: default; }
   .ext-main { display: flex; flex-direction: column; gap: 7px; flex: 0 0 300px; }
@@ -777,7 +777,7 @@
       w.document.body.innerHTML =
         '<div style="font-family:Hiragino Sans,Yu Gothic UI,Meiryo,sans-serif;padding:28px 32px;color:#171B26">' +
         '<div style="font-size:30px;font-weight:700">' + EXT_HELP[os] + '</div>' +
-        '<div style="margin-top:14px;font:600 20px Consolas,Menlo,monospace;color:#0891B2">' + url + '</div></div>';
+        '<div style="margin-top:14px;font:600 20px Consolas,Menlo,monospace;color:#444C58">' + url + '</div></div>';
     } catch (e) {}
   }
   var cards = document.querySelectorAll(".ext-card");
