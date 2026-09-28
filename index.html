@@ -23,6 +23,8 @@
     --c-taskview-bg: #EFEAFE;
     --c-tray: #D6409F;
     --c-tray-bg: #FCE8F4;
+    --c-ext: #0891B2;
+    --c-ext-bg: #E0F4F8;
     --c-mark: #E5484D;
 
     --shadow: 0 1px 2px rgba(23,27,38,0.04), 0 6px 16px rgba(23,27,38,0.05);
@@ -46,6 +48,8 @@
       --c-taskview-bg: #2A2350;
       --c-tray: #F17BC6;
       --c-tray-bg: #45203A;
+      --c-ext: #4CC9E0;
+      --c-ext-bg: #103A44;
       --c-mark: #FF6B70;
 
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.35);
@@ -69,6 +73,8 @@
     --c-taskview-bg: #2A2350;
     --c-tray: #F17BC6;
     --c-tray-bg: #45203A;
+    --c-ext: #4CC9E0;
+    --c-ext-bg: #103A44;
     --c-mark: #FF6B70;
 
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.35);
@@ -366,6 +372,59 @@
   .compact-note { font-size: 10px; color: var(--ink-dim); text-align: right; margin: 8px 0 0; }
   .compact-note a { color: inherit; }
 
+  /* 拡張機能（シアン） */
+  .compact-heading h2 .ex { color: var(--c-ext); }
+  .ext-card {
+    --accent: var(--c-ext);
+    --accent-bg: var(--c-ext-bg);
+    display: flex;
+    gap: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent);
+    border-radius: 14px;
+    padding: 14px 18px;
+  }
+  .ext-main { display: flex; flex-direction: column; gap: 10px; flex: 0 0 300px; }
+  .ext-browser { align-self: flex-start; display: inline-flex; border: 1px solid var(--border-strong); border-radius: 999px; padding: 2px; gap: 2px; }
+  .ext-browser button { appearance: none; border: none; background: transparent; color: var(--ink-dim); font: inherit; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 999px; cursor: pointer; }
+  .ext-browser button[aria-pressed="true"] { background: var(--accent); color: var(--surface); }
+  .ext-btn {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: var(--ink);
+    background: var(--accent-bg);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: transform 0.12s ease;
+  }
+  .ext-btn:hover { transform: translateY(-2px); }
+  .ext-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .ext-btn .tile-icon { background: var(--accent); color: var(--surface); }
+  .ext-btn b { display: block; font-size: 17px; }
+  .ext-btn small { display: block; font-size: 12px; color: var(--ink-dim); margin-top: 2px; }
+  .ext-btn .arrow { margin-left: auto; color: var(--accent); font-weight: 700; font-size: 18px; }
+  .ext-card .copy-chip { margin-top: 0; }
+  .ext-status { min-height: 1.4em; margin: 0; font-size: 12px; font-weight: 700; color: var(--accent); }
+  .compact-note kbd { font: 700 10px "Segoe UI", sans-serif; border: 1px solid var(--border-strong); border-radius: 4px; padding: 0 4px; }
+  /* ブラウザの再現図（固定色） */
+  .browser { flex: 1; display: block; background: #F1F3F4; border: 1px solid #D5D5D5; border-radius: 8px; overflow: hidden; color: #1B1B1B; font-family: "Segoe UI", "Yu Gothic UI", sans-serif; }
+  .browser-tabs { display: flex; align-items: flex-end; gap: 4px; background: #DEE1E6; padding: 6px 10px 0; font-size: 11px; }
+  .browser-tabs span { background: #F1F3F4; border-radius: 8px 8px 0 0; padding: 6px 28px 6px 12px; }
+  .browser-tabs span.dim { background: transparent; color: #666; }
+  .browser-bar { display: flex; align-items: center; gap: 12px; padding: 12px 14px; flex-wrap: wrap; }
+  .browser-nav { color: #777; font-size: 13px; letter-spacing: 6px; }
+  .omnibox { display: flex; align-items: center; min-width: 190px; flex: 0 1 300px; height: 34px; background: #FFFFFF; border: 2px solid #1A73E8; border-radius: 17px; padding: 0 14px; font: 600 14px ui-monospace, Consolas, monospace; outline: 3px solid var(--c-mark); outline-offset: 3px; }
+  .omnibox .caret { margin-left: 1px; }
+  .browser-page { display: block; height: 44px; margin: 0 14px 12px; border-radius: 6px; background: repeating-linear-gradient(90deg, #E4E6E8 0 60px, transparent 60px 72px); opacity: .6; }
+
   .status {
     min-height: 1.4em;
     margin: 10px 0 0;
@@ -391,6 +450,8 @@
     .keyboard-copy kbd { font-size: 18px; }
     .keyboard-panel { grid-template-columns: 1fr 1fr; padding: 12px; }
     .keyboard-copy h3 { gap: 7px; }
+    .ext-card { flex-direction: column; }
+    .ext-main { flex: none; }
   }
   @media (max-width: 640px) {
     body { padding: 16px 16px 24px; }
@@ -428,6 +489,7 @@
     <span class="legend-item"><span class="dot" style="background:var(--c-apps)"></span>アプリ</span>
     <span class="legend-item"><span class="dot" style="background:var(--c-taskview)"></span>タスクビュー</span>
     <span class="legend-item"><span class="dot" style="background:var(--c-tray)"></span>システムトレイ</span>
+    <span class="legend-item"><span class="dot" style="background:var(--c-ext)"></span>拡張機能</span>
   </div>
 
   <section class="grid">
@@ -499,6 +561,43 @@
   </article>
   <p class="compact-note">Windowsの設定によりアイコンの位置・表示は異なります。 <a href="https://support.microsoft.com/ja-jp/windows/experience/personalization/customize-the-taskbar-in-windows" target="_blank" rel="noopener noreferrer">Microsoftの操作ガイド ↗</a></p>
 </section>
+
+<section class="compact-guide" aria-labelledby="ext-title">
+  <div class="compact-heading"><h2 id="ext-title"><span class="ex">拡張機能</span>の開き方</h2><span>ブラウザの拡張機能の一覧を開きます</span></div>
+  <article class="ext-card">
+    <div class="ext-main">
+      <div class="ext-browser" role="group" aria-label="ブラウザの種類">
+        <button type="button" data-browser="chrome" aria-pressed="true">Chrome</button>
+        <button type="button" data-browser="edge" aria-pressed="false">Edge</button>
+      </div>
+      <button type="button" class="ext-btn" id="ext-open">
+        <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3h4v3a2 2 0 1 0 4 0V3h3v7h-3a2 2 0 1 0 0 4h3v7h-7v-3a2 2 0 1 0-4 0v3H3v-7h3a2 2 0 1 0 0-4H3V3h7z"/></svg></span>
+        <span><b>新しいタブで開く</b><small>URLをコピーして、新しいタブを開きます</small></span>
+        <span class="arrow">→</span>
+      </button>
+      <span class="copy-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2"/></svg><b class="js-ext">chrome://extensions</b>をコピー</span>
+      <p class="ext-status" id="ext-status" role="status" aria-live="polite"></p>
+    </div>
+    <figure class="demo" role="img" aria-label="新しいタブのアドレスバーをクリックし、Ctrl＋Vで貼り付けてEnterを押す図">
+      <span class="steps">
+        <span><i>1</i>アドレスバーをクリック</span>
+        <span><i>2</i><kbd>Ctrl</kbd>＋<kbd>V</kbd> で貼り付け</span>
+        <span><i>3</i><kbd>Enter</kbd></span>
+      </span>
+      <span class="browser" aria-hidden="true">
+        <span class="browser-tabs"><span class="dim">受検前設定ランチャー</span><span>新しいタブ</span></span>
+        <span class="browser-bar">
+          <span class="browser-nav">← → ⟳</span>
+          <span class="omnibox"><span class="js-ext">chrome://extensions</span><span class="caret"></span></span>
+          <span class="paste"><svg viewBox="0 0 26 14"><path d="M25 7H3M8 2 3 7l5 5"/></svg><kbd>Ctrl</kbd>＋<kbd>V</kbd>→<kbd>Enter</kbd></span>
+        </span>
+        <span class="browser-page"></span>
+      </span>
+      <figcaption>画面は再現図です。拡張機能のページはブラウザの制限により、リンクから直接は開けません。</figcaption>
+    </figure>
+  </article>
+  <p class="compact-note">新しいウィンドウで開く場合は <kbd>Ctrl</kbd>＋<kbd>N</kbd> を押してから、同じように貼り付けてください。</p>
+</section>
 </div>
 
 <script>
@@ -536,6 +635,46 @@
       status.textContent = "検索欄に「" + q + "」と入力してください";
     }).then(function () {
       location.href = href;
+    });
+  });
+
+  // 拡張機能：chrome:// / edge:// はページからは開けないため、URLをコピーして新しいタブを開く
+  var EXT_URLS = { chrome: "chrome://extensions", edge: "edge://extensions" };
+  var browser = /Edg\//.test(navigator.userAgent) ? "edge" : "chrome";
+  var extBtns = document.querySelectorAll(".ext-browser button");
+  var extStatus = document.getElementById("ext-status");
+  function setBrowser(b) {
+    browser = b;
+    for (var i = 0; i < extBtns.length; i++) extBtns[i].setAttribute("aria-pressed", String(extBtns[i].getAttribute("data-browser") === b));
+    var els = document.querySelectorAll(".js-ext");
+    for (var j = 0; j < els.length; j++) els[j].textContent = EXT_URLS[b];
+  }
+  for (var k = 0; k < extBtns.length; k++) {
+    extBtns[k].addEventListener("click", function () { setBrowser(this.getAttribute("data-browser")); });
+  }
+  setBrowser(browser);
+
+  // 開いた新しいタブに手順を大きく表示する
+  function writeHelp(w, url) {
+    try {
+      w.opener = null;
+      w.document.title = "ここに貼り付け";
+      w.document.body.innerHTML =
+        '<div style="font-family:Yu Gothic UI,Meiryo,sans-serif;padding:28px 32px;color:#171B26">' +
+        '<div style="font-size:30px;font-weight:700">↑ アドレスバーをクリック → Ctrl＋V → Enter</div>' +
+        '<div style="margin-top:14px;font:600 20px Consolas,monospace;color:#0891B2">' + url + '</div></div>';
+    } catch (e) {}
+  }
+  document.getElementById("ext-open").addEventListener("click", function () {
+    var url = EXT_URLS[browser];
+    copyText(url).then(function () {
+      extStatus.textContent = "「" + url + "」をコピーしました";
+    }).catch(function () {
+      extStatus.textContent = "アドレスバーに「" + url + "」と入力してください";
+    }).then(function () {
+      var w = window.open("about:blank", "_blank");
+      if (w) writeHelp(w, url);
+      else extStatus.textContent += "（新しいタブは Ctrl＋T で開いてください）";
     });
   });
 })();
